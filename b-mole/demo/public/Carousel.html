@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Css3 Images Fade & Slider</title>    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="./css/Carousel.css">  
+    <link rel="stylesheet" href="./css/bootstrap.css"/>
+</head>
+<body>
+    <div class="focus ">
+        <div class="images clearfix">
+            <div class="item"><img src="../img/home-1.jpg" /></div>
+            <div class="item"><img src="../img/home-2.jpg" /></div>
+            <div class="item"><img src="../img/home-4.jpg" /></div>
+            <div class="title">
+                <div>
+                    <span class='subtitle'>NCCO1702 家用型空气进化器</span><br>
+                    <span class='smalltitle'>
+                        独创NCCOyang氧聚解净化技术<br>
+                        甲醛、雾霾、细菌污染一次清除
+                    </span><br>
+                    <span class='price'>￥4288</span><br>
+                    <button class='about'>了解更多</button><br>
+                </div>
+                <div>
+                    <span class='subtitle'>NCCO1601 家用型空气净化器</span><br>
+                    <span class='smalltitle'>NCCO滤芯可长效使用，无愧性价比之王</span><br>
+                    <span class='price'>￥4688</span><br>
+                    <button class='about'>了解更多</button><br>
+                </div>
+                <div>
+                    <span class='subtitle'>NCCO1701 母婴型空气净化器</span><br>
+                    <span class='smalltitle'>8小时智能断电保护，守护妈妈与婴儿用电安全</span><br>
+                    <span class='price'>￥2888</span><br>
+                    <button class='about'>了解更多</button><br>
+                </div>               
+            </div>-             
+            <div class='but'>
+                <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+                <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+            </div>
+        </div>    
+    </div>
+    <div>
+        
+    </div>
+</body>
+<script>
+
+    $('.images .item:first,.title div:first').addClass('active');
+    // 设置初始index为1  避免定时器第一次调用index=0没有任何动作多用3秒
+    var index=0;
+    function autoPlay(i){  
+    // 注意：index++是指执行完后再自增1，所以index=0时，eq(index++)最开始是eq(0);
+        index+=i;
+        if(index>2){index=0;}
+        else if(index==-1){index=2;}               
+        $('.images .item').removeClass('active').eq(index).addClass('active'); 
+        $('.title div').removeClass('active').eq(index).addClass('active');
+        $('.control span').removeClass('active').eq(index).addClass('active');
+    // 当index自增到len,也就是超出图片的数量时，归零.                 
+    }                       
+    // 定时器会循环触发函数autoPlay
+    loop = setInterval(function(){
+        autoPlay(1)
+    },4500);  
+    // 按钮移除悬停  
+    $('.but span').hover(
+        // 进入按钮
+        function(){clearInterval(loop)},
+        // 离开按钮
+        function(){loop = setInterval(function(){autoPlay(1)}, 4500)})    
+    // 按钮开关
+    var canClick=true;
+    // 右按钮
+    $('.but .carousel-control-next-icon').click(function(){
+        if(canClick){
+            clearInterval(loop)
+            autoPlay(1);
+            canClick=fals
+            e;
+        setTimeout(function(){canClick=true},1000)
+        }                 
+    })
+    // 左按钮                   
+    $('.but .carousel-control-prev-icon').click(function(){
+        if(canClick){
+            clearInterval(loop)
+            autoPlay(-1)
+            canClick=false;
+        setTimeout(function(){canClick=true},1000)
+        }                 
+    })  
+    // 了解更多
+    $('.title .about').hover(function(){
+        $(this).css('background','none')
+    },function(){
+        $(this).css('background',`rgba(241, 219, 13, 0.7)`)
+    })
+
+</script>
+</html>
