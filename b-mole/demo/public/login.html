@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style >
+        #rl{
+            border-top: 1px solid #ccc;
+            padding: 5%;
+            min-width: 775px;
+        }
+        #rl div{
+            width:47%;
+            margin-right:3%;
+            transition:.5s;
+        }
+        #reg,#login{
+            float: left;
+        }
+        #reg{
+            margin-bottom: 13px;
+        }
+        #rl .input{
+            display:inline-block;
+            width: 80%;
+            height:40px;
+            padding:10px;
+            outline:none;
+            background:rgb(230, 223, 223);
+        }
+        #rl::after{
+            content: '';
+            display: block;
+            clear: both;
+        }        
+        .btn{
+            background-color: black;
+            color: white;
+            width: 60px;
+        }
+        .btn:hover{
+            background-color: white;
+            color: black;
+            border: 1px solid #000;  
+        }
+        .vali_info{/* 页面初始，验证消息不显示 */
+            opacity:0;
+        }    
+        input[type="submit"]{
+            width:100px;
+            height:40px;
+            font-size:14px;
+            background:rgba(177, 188, 224,.6);
+            border-radius:10px;
+            line-height:none;
+            border:1px solid rgba(223, 183, 183,.8);
+        }
+        input[type="submit"]:hover{
+            background:rgba(224, 81, 81,.6);
+            color:#fff;
+        }
+        input[type="checkbox"]{
+            width:20px;
+            height:20px;
+            margin-top:10px;
+        }
+        input[type="checkbox"]+span{
+            display:inline-block;
+            transform:translateY(-5px);
+            color:red;
+        }
+    </style>     
+</head>
+<body>
+    <!-- 页头 -->
+    <div id='header'></div>
+
+    <!-- 登录和注册 -->
+    <div id="rl">
+        <div id="login">
+            <form method='post' action="/user/login">
+                <h4>登录</h4>
+                <h6>用户名或电邮地址*</h6>
+                <input type="text" class="input" name="uname" placeholder="请输入用户名"><br>
+                <div class="vali_info">
+                    5~8个字符以内的字母、数字或下划线的组合
+                </div>
+                <h6>密码</h6>
+                <input type="password" class="input" name="upwd" placeholder="请输入密码"><br>
+                <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>           
+                <input type="submit" value='登陆'><br>
+                <input type="checkbox">
+                <span>记住我</span>  
+            </form>
+        </div>
+        <div id='reg'>
+            <form  method='get' action="user/reg">
+                <h4>注册</h4>
+                <h6>电邮地址*</h6>
+                <input type="text" class="input" name="email" placeholder="请输入用户名"><br>
+                <div class="vali_info">
+                    5~8个字符以内的字母、数字或下划线的组合
+                </div>
+                <h6>密码</h6>
+                <input type="password" class="input" name="upwd" placeholder="请输入密码"><br>
+                <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>
+                <input type="submit" value='注册'><br>
+            </form>
+        </div>
+    </div>    
+    <!-- 页脚 -->
+    <div id='footer'></div>
+</body>
+<script>
+    // 加载页头
+    $('#header').load('./header.html',function(){
+        console.log($('#header').contents().prevObject.find('ul.nav-item .nav-link:nth-child(9)').addClass('link-f').siblings().removeClass('link-f'))
+    })
+    // 加载页脚
+    $('#footer').load('./footer.html')  
+</script>
+<script>
+    $(function(){
+            var yz=/^\w{5,8}$/;
+        $('.input').blur(function(){
+            if (!yz.test($(this).val())) {
+            $(this).nextAll('div')[0].className='';
+            }else{
+            $(this).nextAll('div')[0].className='vali_info';               
+            }            
+        })
+        
+    })
+    
+
+</script>
+</html>
