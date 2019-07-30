@@ -1,0 +1,107 @@
+/* 一楼大图 */
+
+.service-1f img{
+    height:600px;
+    width:100%;
+}
+/* 二楼图片 */
+.service{    
+    margin:1% 10% 3% 10%;
+    display:flex;
+    justify-content:space-between;
+}
+.service-1f{
+    width:100%;
+    margin:0;
+}
+.service-2f div{
+    width:48.8%;
+    height:100%;
+}
+.service div img{
+    width:100%;   
+}
+/* 三楼图片 */
+.service-3f div{
+    width:31.3%;
+}
+/* 四楼 */
+.service-4f{
+    width:200%;
+    justify-content: space-around;
+    position:relative;
+    height:315px;
+    overflow: hidden; 
+    margin: 0.5% 10% 0% 10%;
+}
+.ser{
+    float:left;
+    width:315px;
+    height:315px;
+    overflow:hidden;
+    display:flex;
+    transition:.5s;
+    margin-right:10px;
+}
+.ser img{
+    width:315px;
+    height:315px;
+}
+.ser div:first-child{
+    width:315px !important;
+    margin-right:10px;    
+}
+.ser>div:last-child{
+    width:0px;
+    overflow: hidden;    
+}
+.ser p{
+    min-width:315px;
+}
+.ser p:first-child{
+    text-align:center;
+    font-size:18px;
+    color:#bad300;
+}
+.ser p:last-child{
+    font-size:14px;
+    line-height:25px;
+    opacity:.8;
+}
+.active{
+    width:640px;
+}
+.active>div{
+    width:315px !important;
+}
+.active p:last-child{
+    padding:20px;
+}
+/* 动画效果 */
+.service-2f div{
+    transition:1s;
+}
+.service>div:first-child{
+    transform: translateX(-100px)
+}
+.service>div:last-child{
+    transform: translateX(100px)
+}
+
+.service-3f div{
+    transition:1s;
+}
+.service-3f>div{
+    transform: translateY(100px)
+}
+.service-3f>div:last-child{
+    transform: translateX(100px)
+}
+.service-3f>div:first-child{
+    transform:translateX(-100px)
+}
+
+.service-4f{
+    transition:1s;
+    transform:translateY(100px)
+}

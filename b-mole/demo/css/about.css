@@ -1,0 +1,143 @@
+/* 一楼大图 */
+.inner{    
+    width:100%;
+    height:400px;
+    background-size: 100% auto;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-image:url('../../img/about/666-1.jpg');
+}
+/* 二楼 */
+.section{
+    padding:0;    
+    margin:0 8%;
+    color:#000;
+    text-align:center;
+}
+    /*二楼大标题  */
+.section h3{
+    margin:5% auto;
+    font-weight:bold;
+}
+    /* 二楼文字 */
+.section p{
+    font-size:12px;
+    color:#333;
+    opacity:.6;
+    text-align:left;
+}
+.section div:nth-child(2) p{
+    text-align:left;
+}
+.gliancenter{
+    height:2570px;
+    background-size: 100% auto;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-image:url('../../img/about/bmolaj.jpg')
+}
+.section-inner{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;    
+    margin-left:4%;
+    margin-right:5%;
+    margin-top:5%;
+}
+.section-inner>div{
+    width:50%;
+    margin-left:3%;
+}
+.section-inner>div:first-child{
+    transition:1s;
+    transform:translateX(-80px);
+}
+.section-inner>div:last-child{
+    transition:1s;
+    transform:translateX(80px);
+}
+.gr-section{
+    margin-top:5%;
+    margin-left:10%;
+    margin-right:10%;
+}
+.gr-section>div:first-child{
+    display:flex;   
+}
+.gr-section>div>div{
+    display:flex;
+    flex-direction:column;
+}
+.gr-section>div>div:last-child{    
+    align-items:flex-start;
+    justify-content: space-around;
+    margin-left:3%;
+}
+.gr-section>div>div:last-child p{
+    display:inline-block;
+    margin-top:11%;
+}
+.gr-section>div>div:last-child p:last-child{
+    display:inline-block;
+    margin-top:9%;
+}
+.gr-section>div>div>div{
+    width:50px;height:50px;
+    border:1px solid rgba(54, 54, 54,.6);
+    border-radius:50%;
+    text-align:center;
+    line-height:45px;
+    margin-top: 50%;
+}
+.gr-section img{
+    width:25px;
+}
+.gr-section>div:last-child{
+    display:flex;
+    flex-direction:column;    
+    top:5%;
+}
+
+.gr-section>div:last-child input{
+    height:50px;
+    padding:20px;
+    font-size:12px;
+    color:rgba(26, 25, 25,.6);
+    background:#f6f6f6;
+    outline:none;
+    border:1px solid rgba(102, 97, 97,.6);
+}
+.gr-section>div:last-child input:first-child{
+    margin-top:10%;
+}    
+.gr-section>div:last-child button{
+    width:65px;
+    height:35px;
+    border:1px solid rgba(61, 60, 60,.1);
+    font-size:12px;
+    background:#b8cf03;
+    color:#fff;
+    cursor:pointer;
+    transition:.5s;
+}
+.gr-section>div:last-child button:hover{
+    background:#fff;
+    color:#000;
+    border:1px solid rgba(61, 60, 60,1)
+}
+/* 锚点 */
+.top{
+    position:fixed;
+    bottom:10%;
+    right:2%;   
+    width:60px;
+    height:60px;
+    opacity:0;    
+}
+.top img{
+    width:100%;
+    cursor:pointer;
+}
+.top img:hover{
+    transform:scale(1.2);
+}

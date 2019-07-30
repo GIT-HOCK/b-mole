@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<style>       
+    .zt{
+        width: 90%;
+        margin: 3% 5%;
+    }
+    .nr{
+        width: 100%;        
+        text-align: center;        
+    }
+    .nr_xx{
+        float: left;
+        width: 45%; height: 400px;
+        margin: 3% 0 3% 5%;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+    .nr_xx>img{
+            width: 100%; height: 80%;
+            transition: all 0.5s;
+        }
+    .nr_xx:hover img{
+        transform: scale(1.1);
+    }
+    .nr_xx:hover::after{
+        content: '';
+        text-align: center;
+        display:block;
+        width:100%;
+        height:auto;
+        position: absolute;
+        top:0;
+        background:rgba(0,0,0,0.3)
+    }
+    .nr_xx:hover::before{
+        content: 'view';
+        display: block;
+        width:20%;
+        height:10%;
+        position: absolute;
+        z-index: 2;
+        top:45%;left: 50%;
+        transform: translate(-50%,-50%);
+        line-height:35px;
+        color: #fff;
+        background:#000;
+        }    
+    .nr a{
+            color: #333333;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            top: 30px;
+        }
+</style>
+<body>
+    <!-- 页头 -->
+    <div id='header'></div>
+    <!-- 固定页头 --> 
+    <div class='header1'>
+        <div class='header-input'>
+            <img src="../../img/78.png" alt="">
+            <input type="text" placeholder='Search'>
+            <img src="../../img/781.png" alt="" class='header-out'>
+        </div>    
+            <!-- 导航栏 -->
+        <div class="navbar"> 
+            <!-- logo图片 -->
+            <div class='header-logo'>
+            <!-- Logo -->
+                    <img src="../../img/NCCLOGO-01.png" alt="" >        
+            </div>       
+            <div class="nav">           
+                <div>
+                    <ul class="nav-item">
+                        <li class="nav-link link-f">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/index.html">首页</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/about.html">关于我们</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/customer.html">客户案例</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/news.html">新闻动态</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/video.html">视频</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/product.html">产品中心</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/service.html">技术服务</a>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/shop.html">在线选购</a>
+                        </li>
+                        </li>
+                        <li class="nav-link ">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/login.html">我的账户</a>
+                        </li>
+                        <li class="nav-link lav">
+                            <div>
+                                <img src="../../img/zh-hans.png" alt=""> 
+                                <a class=" " href="javascript:;">简体中文</a> 
+                                <div class='between'>
+                                    <ul>
+                                        <li><a href="javascript:;"><img src="../../img/zh-hans.png" alt="">繁体中文</a></li>
+                                        <li><a href="javascript:;"><img src="../../img/en.png" alt="">English</a></li>
+                                    </ul>             
+                                </div>   
+                            </div>       
+                        </li>
+                        <li class="nav-link .bet">
+                            <a href='javascript:;' class=" " >
+                                <img src='../../img/zh-hans.png' alt=''>繁体中文
+                            </a>
+                        </li>
+                        <li  class="nav-link .bet" >
+                            <a href="javascript:;" class=' '>
+                                <img src="../../img/en.png" alt="">English
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>        
+            <!-- 购物车图片 -->
+            <div class='shapp'>
+                <a href="jacasceipt:;">
+                    <img src="../../img/77.png" alt="" >
+                </a> 
+                <div class=''>
+                    <a href="javascript:;">购物车</a>
+                </div>            
+            </div>        
+            <div class='search'>
+                <a href="javascript:;">
+                    <img src="../../img/771.png" alt="">
+                </a> 
+            </div>        
+        </div>        
+    </div> 
+    <!-- 主体 -->
+    <div class="zt">
+        <!-- 内容视频 -->
+        <div class="nr">
+                    <h2>技术视频</h2>
+                <div class='nr_xx'>
+                    <img src="../../img/videos/1.jpg">
+                    <a href="javascript:;">丰田对b-MOLA鱼仔空气净化器性能测试</a>
+                </div>
+                <div class='nr_xx'>
+                    <img src="../../img/videos/2.jpg">
+                    <a href="javascript:;">NCCO氧聚解空气净化技术介绍</a>
+                </div>
+                <div class='nr_xx'>
+                    <img src="../../img/videos/3.jpg">
+                    <a href="javascript:;">b-MOLA 鱼仔空气净化器烟雾测试</a>
+                </div> 
+                <div class='nr_xx'>
+                    <img src="../../img/videos/4.jpg">
+                    <a href="javascript:;">NCCO技术空气净化器与活性炭空气净化器的对比</a>
+                </div>                                                        
+            </div>
+        <!-- 产品视频 -->
+        <div class="nr">
+            <h2>产品视频</h2>
+            <div class='nr_xx'>
+                <img src="../../img/videos/5.jpg">
+                <a href="javascript:;">b-MOLA 鱼仔空气净化器评测</a>
+            </div>
+            <div class='nr_xx'>
+                <img src="../../img/videos/6.jpg">
+                <a href="javascript:;">女人美好的一天，一共分几步？</a>
+            </div>
+        </div>
+        <!-- 使用教学视频 -->
+        <div class="nr">
+            <h2>使用教学视频</h2>
+            <div class='nr_xx'>
+                <img src="../../img/videos/7.jpg">
+                <a href="javascript:;">NCCO技术使用案例</a>
+            </div>
+            <div class='nr_xx'>
+                <img src="../../img/videos/8.jpg">
+                <a href="javascript:;">NCCO技术优势 除甲醛除异味更高效更安全</a>
+            </div>
+            <div class='nr_xx'>
+                <img src="../../img/videos/9.jpg">
+                <a href="javascript:;">b-MOLA 鱼仔空气净化器功能介绍</a>
+            </div>
+            <div class='nr_xx'>
+                <img src="../../img/videos/10.jpg">
+                <a href="javascript:;">NCCO技术、活性炭、负离子、光触媒等空气净化技术介绍</a>
+            </div>            
+        </div>
+        <!-- 品牌宣传视频 -->
+        <div class="nr">
+            <h2>品牌宣传视频</h2>
+            <div class='nr_xx'>
+                <img src="../../img/videos/11.jpg">
+                <a href="javascript:;">b-MOLA鱼仔空气净化器卡通片</a>
+            </div>
+            <div class='nr_xx'>
+                <img src="../../img/videos/12.jpg">
+                <a href="javascript:;">鼻敏感及甲醛中毒用户采访</a>
+            </div>
+        </div>               
+        
+    </div>
+    <!-- 锚点 -->
+    <div class='top'><a href="#header"><img src="../../img/555.png" alt=""></a></div>
+    <!-- 页脚 -->
+    <div id='footer'></div>
+</body>
+<script>
+    // 加载页头
+    $('#header').load('./header.html',function(){
+            $('.nav-item .nav-link:nth-child(5)').addClass('link-f').siblings().removeClass('link-f')
+        })
+    // 加载页脚
+    $('#footer').load('./footer.html')  
+</script>
+</html>

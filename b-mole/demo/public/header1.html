@@ -24,7 +24,7 @@
         <div class="nav">           
             <div>
                 <ul class="nav-item">
-                    <li class="link-f">
+                    <li class="nav-link link-f">
                         <a href="javascript:;">首页</a>
                     </li>
                     <li class="nav-link ">
@@ -52,7 +52,7 @@
                     <li class="nav-link ">
                         <a href="javascript:;">我的账户</a>
                     </li>
-                    <li class="lav">
+                    <li class="nav-link lav">
                         <div>
                             <img src="../../img/zh-hans.png" alt=""> 
                             <a class=" " href="javascript:;">简体中文</a> 
@@ -95,21 +95,25 @@
 </div>
     
 </body>
-    <script>        
+    <!-- <script>        
     // 搜索框显示
-    var $img=$('.search');
-    var $input=$('.header-input');   
-    $img.click(function(e){
-        e.preventDefault();
-        if($input.hasClass('header-input-h')){
-        $input.removeClass('header-input-h')}
-        else{
-        $input.addClass('header-input-h')}     
-    })
-    $('.header-out').click(function(e){
-        e.preventDefault();
-        $input.removeClass('header-input-h')
+    $(function(){
+            var $img=$('.search');
+        var $input=$('.header-input');   
+        $img.click(function(e){
+            e.preventDefault();
+            if($input.hasClass('header-input-h')){
+            $input.removeClass('header-input-h')}
+            else{
+            $input.addClass('header-input-h')}     
+        })
+        $('.header-out').click(function(e){
+            e.preventDefault();
+            $input.removeClass('header-input-h')
+        })
+         
     })
     
-    </script>
+    
+    </script> -->
 </html>

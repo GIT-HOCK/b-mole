@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Document</title> 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<link rel="stylesheet" href="../css/comm.css">
 <link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/comm.css">
 </head>
 <body>
 <div class='header'>
@@ -25,32 +25,32 @@
             <div>
                 <ul class="nav-item">
                     <li class="nav-link link-f">
-                        <a href="javascript:;">首页</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/index.html">首页</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">关于我们</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/about.html">关于我们</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">客户案例</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/customer.html">客户案例</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">新闻动态</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/news.html">新闻动态</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">视频</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/video.html">视频</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">产品中心</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/product.html">产品中心</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">技术服务</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/service.html">技术服务</a>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">在线选购</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/shop.html">在线选购</a>
                     </li>
                     </li>
                     <li class="nav-link ">
-                        <a href="javascript:;">我的账户</a>
+                        <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/login.html">我的账户</a>
                     </li>
                     <li class="lav">
                         <div>
@@ -82,7 +82,7 @@
             <a href="jacasceipt:;">
                 <img src="../../img/77.png" alt="" >
             </a> 
-            <div class=''>
+            <div class='cart'>
                 <a href="javascript:;">购物车</a>
             </div>            
         </div>        
@@ -92,15 +92,14 @@
             </a> 
         </div>        
     </div>        
-</div>
-    
+</div>    
 </body>
-    <script>        
-    
-    $(function(){
+    <script>           
+    $(function(){           
             // 搜索框显示
         var $img=$('.search');
-        var $input=$('.header-input');   
+        var $input=$('.header-input'); 
+        
         $img.click(function(e){
             e.preventDefault();
             if($input.hasClass('header-input-h')){
@@ -111,14 +110,35 @@
         $('.header-out').click(function(e){
             e.preventDefault();
             $input.removeClass('header-input-h')
-        })
-        //导航栏颜色
-        $('.nav-item li').click(function(){
-            $(this).addClass('link-f').siblings().removeClass('link-f')
-            setTimeout(function(){
-                window.location.href='http://127.0.0.1:5500/demo/public/login.html';
-            },100)
-        })
+        })        
+        //   循环获取高度  二楼浮动
+        // setInterval(function(){
+        //     console.log(parseInt($(window).height()))
+        //     console.log(parseInt($(window).scrollTop()))
+        // },1000) 
+        // 高度调节
+        $(window).bind('scroll',function(){
+            if(parseInt($(window).scrollTop())>=150){
+                    $('.header1').addClass('header2') 
+                    $('.top').addClass('opacity-5')  
+                
+                }else if(parseInt($(window).scrollTop())<=180){
+                    $('.header1').removeClass('header2')
+                    $('.top').removeClass('opacity-5')
+                }
+            })   
+        $('.cart').click(function(){            
+            if(window.sessionStorage.getItem('uid')!=null){
+                window.location.href=`http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/cart.html`
+            }else{ 
+                alert('请登录')
+                setTimeout(function(){
+                    window.location.href=`http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/login.html?
+                },1000)
+                `
+                }
+            )}
+        })     
     })
     </script>
 </html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>b-MOLA鱼仔空气净化器</title>
-    <script src="../js/jquery.min.js"></script>     
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/header.css">     
+    <link rel="stylesheet" href="../css/index.css">    
     <link rel="stylesheet" href="../css/comm.css">
 </head>
 <body>     
@@ -27,35 +27,35 @@
             <div class="nav">           
                 <div>
                     <ul class="nav-item">
-                        <li class="link-f">
-                            <a href="javascript:;">首页</a>
+                        <li class="nav-link link-f">
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/index.html">首页</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">关于我们</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/about.html">关于我们</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">客户案例</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/customer.html">客户案例</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">新闻动态</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/news.html">新闻动态</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">视频</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/video.html">视频</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">产品中心</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/product.html">产品中心</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">技术服务</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/service.html">技术服务</a>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">在线选购</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/shop.html">在线选购</a>
                         </li>
                         </li>
                         <li class="nav-link ">
-                            <a href="javascript:;">我的账户</a>
+                            <a href="http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/login.html">我的账户</a>
                         </li>
-                        <li class="lav">
+                        <li class="nav-link lav">
                             <div>
                                 <img src="../../img/zh-hans.png" alt=""> 
                                 <a class=" " href="javascript:;">简体中文</a> 
@@ -346,7 +346,7 @@
         </div>
     </div>
     <!-- 锚点 -->
-    <div class='top'><a href="#header"> <img src="../../img/555.png" alt=""></a></div>
+    <div class='top'><a href="#header"><img src="../../img/555.png" alt=""></a></div>
     <!-- 页脚 -->
     <div id='footer'></div>
 </body>
@@ -355,10 +355,10 @@
         // 加载页头
         $('#header').load('./header.html')
         // 加载页脚
-        $('#footer').load('./footer.html') 
+        $('#footer').load('./footer.html')
         // 搜索框显示
             var $img=$('.search');
-            var $input=$('.header-input');   
+            var $input=$('.header .header-input');   
             $img.click(function(e){
                 e.preventDefault();
                 if($input.hasClass('header-input-h')){
@@ -369,7 +369,23 @@
             $('.header-out').click(function(e){
                 e.preventDefault();
                 $input.removeClass('header-input-h')
-            })       
+            })  
+            //固定页头搜索框
+            // 搜索框显示
+            var $img=$('.search');
+            var $input=$('.header1 .header-input');   
+            $img.click(function(e){
+                e.preventDefault();
+                if($input.hasClass('header-input-h')){
+                $input.removeClass('header-input-h')}
+                else{
+                $input.addClass('header-input-h')}     
+            })
+            $('.header-out').click(function(e){
+                e.preventDefault();
+                $input.removeClass('header-input-h')
+            })             
+            
             // 轮播图
         $('.focus .images .item:first,.focus .title div:first,.focus .images .item1').addClass('active');    
         // 设置初始index为1  避免定时器第一次调用index=0没有任何动作多用3秒
@@ -425,7 +441,7 @@
         var t=setInterval(function(){
             Sindex++;
             var time=1000;
-            var xwidth=(-145)*Sindex+'px';           
+            var xwidth=(-180)*Sindex+'px';           
             if(Sindex==10){              
                 $('.section>div>ul').animate({left:xwidth},time,function(){
                     Sindex=0;
@@ -434,35 +450,26 @@
             })}
             else{
                 $('.section>div>ul ').animate({left:xwidth},time);
-            }                    
+            }                     
         },6000) 
-        //   循环获取高度  二楼浮动
-        setInterval(function(){
-            console.log(parseInt($(window).height()))
-            console.log(parseInt($(window).scrollTop()))
-        },6000) 
-            $(window).bind('scroll',function(){ 
-                    if(parseInt($(window).scrollTop())>=3930){
-                        $('.rht div div').css('transform','none')
-                    }
-                    if(parseInt($(window).scrollTop())>=480){
-                        $('.second div div').css('transform','none')
-                    };   
-                    if(parseInt($(window).scrollTop())>=150){
-                        $('.header1').addClass('header2') 
-                        $('.top').addClass('opacity-5')  
-                    
-                    }else if(parseInt($(window).scrollTop())<=180){
-                        $('.header1').removeClass('header2')
-                        $('.top').removeClass('opacity-5')
-                    }
-                })
         
-
-
-    })
-
-    
-    
+        $(window).bind('scroll',function(){ 
+                if(parseInt($(window).scrollTop())>=3930){
+                    $('.rht div div').css('transform','none')
+                }
+                if(parseInt($(window).scrollTop())>=480){
+                    $('.second div div').css('transform','none')
+                };  
+                if(parseInt($(window).scrollTop())>=150){
+                    $('.header1').addClass('header2') 
+                    $('.top').addClass('opacity-5')  
+                
+                }else if(parseInt($(window).scrollTop())<=180){
+                    $('.header1').removeClass('header2')
+                    $('.top').removeClass('opacity-5')
+                }
+            })
+        
+    })   
 </script>
 </html>

@@ -2,12 +2,13 @@
 const express=require('express');
 //引入路由器
 const userRouter=require('./routers/user.js');
+const details=require('./routers/product.js')
 //引入body-parser
 const bodyParser=require('body-parser');
 const cors = require("cors");
 //创建web服务器
 const server=express();
-//2.2:跨域
+// //2.2:跨域
 server.use(cors({
   origin:["http://127.0.0.1:5500",
   "http://localhost:5500"]  
@@ -24,3 +25,4 @@ server.use(bodyParser.urlencoded({
 //使用（挂载）的url：/user
 // /user userRouter
 server.use('/user',userRouter);
+server.use('/product',details);

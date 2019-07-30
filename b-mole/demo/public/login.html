@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+
     <style >
         #rl{
             border-top: 1px solid #ccc;
             padding: 5%;
             min-width: 775px;
+            display:flex;
+            justify-content:space-around;
+            font-size:12px;
         }
-        #rl div{
-            width:47%;
-            margin-right:3%;
+        #rl>div{
+            width:47%;            
             transition:.5s;
+        }
+        form{
+            margin-left:5%;
         }
         #reg,#login{
             float: left;
@@ -29,7 +36,8 @@
             height:40px;
             padding:10px;
             outline:none;
-            background:rgb(230, 223, 223);
+            background:#f6f6f6;
+            border:1px solid rgb(223, 180, 180);
         }
         #rl::after{
             content: '';
@@ -49,18 +57,20 @@
         .vali_info{/* 页面初始，验证消息不显示 */
             opacity:0;
         }    
-        input[type="submit"]{
-            width:100px;
+        input[type="button"]{
+            width:80px;
             height:40px;
             font-size:14px;
-            background:rgba(177, 188, 224,.6);
-            border-radius:10px;
-            line-height:none;
-            border:1px solid rgba(223, 183, 183,.8);
-        }
-        input[type="submit"]:hover{
-            background:rgba(224, 81, 81,.6);
+            background:rgba(3, 3, 3,.8);
             color:#fff;
+            border-radius:4px;
+            line-height:none;
+            border:1px solid rgb(80, 79, 79); 
+            cursor:pointer;           
+        }
+        input[type="button"]:hover{
+            background:#fff;
+            color:#000;
         }
         input[type="checkbox"]{
             width:20px;
@@ -80,50 +90,57 @@
 
     <!-- 登录和注册 -->
     <div id="rl">
-        <div id="login">
-            <form method='post' action="/user/login">
-                <h4>登录</h4>
-                <h6>用户名或电邮地址*</h6>
-                <input type="text" class="input" name="uname" placeholder="请输入用户名"><br>
-                <div class="vali_info">
-                    5~8个字符以内的字母、数字或下划线的组合
-                </div>
-                <h6>密码</h6>
-                <input type="password" class="input" name="upwd" placeholder="请输入密码"><br>
-                <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>           
-                <input type="submit" value='登陆'><br>
-                <input type="checkbox">
-                <span>记住我</span>  
-            </form>
+        <div id="login">            
+            <h5>登录</h5>
+            <p>用户名或电邮地址*</p>
+            <input type="text" class="input" id='lum' value=''><br>
+            <div class="vali_info">
+                5~8个字符以内的字母、数字或下划线的组合
+            </div>
+            <p>密码</p>
+            <input type="password" class="input"  id='lup' value=''><br>
+            <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>           
+            <input type="button" value='登陆'><br>
+            <input type="checkbox">
+            <span>记住我</span>             
         </div>
-        <div id='reg'>
-            <form  method='get' action="user/reg">
-                <h4>注册</h4>
-                <h6>电邮地址*</h6>
-                <input type="text" class="input" name="email" placeholder="请输入用户名"><br>
-                <div class="vali_info">
-                    5~8个字符以内的字母、数字或下划线的组合
-                </div>
-                <h6>密码</h6>
-                <input type="password" class="input" name="upwd" placeholder="请输入密码"><br>
-                <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>
-                <input type="submit" value='注册'><br>
-            </form>
+        <div id='reg'>            
+            <h5>注册</h5>
+            <p>电邮地址*</p>
+            <input type="text" class="input"><br>
+            <div class="vali_info">
+                5~8个字符以内的字母、数字或下划线的组合
+            </div>
+            <p>密码</p>
+            <input type="password" class="input" ><br>
+            <div class="vali_info">5~8个字符以内的字母、数字或下划线的组合</div><br>
+            <input type="button" value='注册'><br>        
         </div>
     </div>    
     <!-- 页脚 -->
     <div id='footer'></div>
 </body>
 <script>
+    $(function(){   
+        // localStorage.a = 3;                 //设置a为"3"
+        // localStorage["a"] = "sfsf";         //设置a为"sfsf"，覆盖上面的值
+        // localStorage.setItem("b","isaac");  //设置b为"isaac"
+        // var a1 = localStorage["a"];         //获取a的值
+        // var a2 = localStorage.a;            //获取a的值
+        // var b = localStorage.getItem("b");  //获取b的值
+        // console.log(a1,a2,b)
+        // localStorage.removeItem("c");      //清除c的值
+       
+        if(localStorage.bool!=1){
+            // alert('请登录')
+        }
     // 加载页头
     $('#header').load('./header.html',function(){
-        console.log($('#header').contents().prevObject.find('ul.nav-item .nav-link:nth-child(9)').addClass('link-f').siblings().removeClass('link-f'))
+        $('#header').contents().prevObject.find('ul.nav-item .nav-link:nth-child(9)').addClass('link-f').siblings().removeClass('link-f')
     })
     // 加载页脚
     $('#footer').load('./footer.html')  
-</script>
-<script>
-    $(function(){
+
             var yz=/^\w{5,8}$/;
         $('.input').blur(function(){
             if (!yz.test($(this).val())) {
@@ -131,10 +148,35 @@
             }else{
             $(this).nextAll('div')[0].className='vali_info';               
             }            
+        })       
+    }) 
+    // 登录 
+        var $login=$('#login input[type="button"]');
+        $login.click(function(){
+            var lum=$('#lum').val();
+            var lup=$('#lup').val();           
+            $.ajax({
+                url:"http://127.0.0.1:3000/user/login",
+                type:'get',
+                data:{uname:lum,upwd:lup},
+                dataType:'JSON',
+                success:function(res){
+                    // console.log(res.uid)
+                    window.sessionStorage.setItem("uid",`${res.uid}`)
+                    var a=window.sessionStorage.getItem('uid')
+                    console.log(a)                    
+                    if(res.code==200){  
+                        console.log(res)
+                        alert('登陆成功')
+                        setTimeout(function(){
+                            window.location.href=`http://127.0.0.1:5500/%E5%87%80%E5%8C%96%E5%99%A8/b-mole/demo/public/product-1802.html?lid=${res.uid}`
+                        },1000)             
+                    }else{
+                        alert('用户名或密码不匹配')
+                    }                                  
+                },
+                fail:err=>{console.log(err)}                
+            })
         })
-        
-    })
-    
-
 </script>
 </html>

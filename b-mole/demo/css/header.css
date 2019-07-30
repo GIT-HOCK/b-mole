@@ -1,6 +1,7 @@
 .header{
     transition:.5s;
     z-index:40;
+    border-bottom:1px solid rgba(206, 205, 205,.4);
 }
 /* 顶部搜索框 */
 .header-input{    
@@ -92,7 +93,7 @@
     z-index:40;
 }
 .header .nav>div{
-    width:60%;
+    width:80%;
 }
 .nav-item li a{
     text-decoration:none;
@@ -250,8 +251,6 @@
 }
 .header1 .nav>div>ul{
     position:relarive;
-        
-    width:80%;
 }
 /*  */
 .header1 .navbar{   
@@ -324,4 +323,19 @@
     position:relative;    
     right:6%;
 }
-
+/* 锚点 */
+.top{
+    position:fixed;
+    bottom:10%;
+    right:2%;   
+    width:60px;
+    height:60px;
+    opacity:0;    
+}
+.top img{
+    width:100%;
+    cursor:pointer;
+}
+.top img:hover{
+    transform:scale(1.2);
+}

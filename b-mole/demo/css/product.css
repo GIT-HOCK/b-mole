@@ -1,0 +1,11 @@
+body{
+    background:#f2f9ff !important;
+}
+.product{
+    width:80%;
+    margin:0 auto;
+}
+.product img{
+    width:890px;
+    height:480px;
+}
